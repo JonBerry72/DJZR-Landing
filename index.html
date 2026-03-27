@@ -237,14 +237,9 @@
 
     .tile-media {
       aspect-ratio: 16 / 9;
-      background:
-        linear-gradient(135deg,
-          rgba(255, 53, 130, 0.35),
-          rgba(255, 187, 0, 0.3),
-          rgba(66, 233, 150, 0.28),
-          rgba(60, 178, 255, 0.3),
-          rgba(164, 91, 255, 0.34)),
-        #0a1018;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       display: flex;
       align-items: flex-end;
       padding: 18px;
@@ -252,11 +247,25 @@
       overflow: hidden;
     }
 
+    .tile-media::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg,
+          rgba(255, 53, 130, 0.18),
+          rgba(255, 187, 0, 0.14),
+          rgba(66, 233, 150, 0.12),
+          rgba(60, 178, 255, 0.14),
+          rgba(164, 91, 255, 0.18));
+      mix-blend-mode: screen;
+    }
+
     .tile-media::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.36));
+      background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.42));
     }
 
     .tile-tag {
@@ -402,7 +411,7 @@ I make them for me first — and share them for anyone else who wants to come al
 
         <div class="tiles-grid">
           <a class="tile" href="https://www.mixcloud.com/jb__72/pre-release-big-room-arpil-2026/" target="_blank" rel="noopener noreferrer">
-            <div class="tile-media">
+            <div class="tile-media" style="background-image: url('images/mixcloud-april-2026.jpg');">
               <span class="tile-tag">Mixcloud</span>
             </div>
             <div class="tile-content">
@@ -421,7 +430,7 @@ By the time Hardwell, Ryos, Bassjackers and Maddix take over, the set flips into
           </a>
 
           <a class="tile" href="https://www.youtube.com/watch?v=HHP-5TZ2PY0" target="_blank" rel="noopener noreferrer">
-            <div class="tile-media">
+            <div class="tile-media" style="background-image: url('images/youtube-mainstage-2026.jpg');">
               <span class="tile-tag">YouTube</span>
             </div>
             <div class="tile-content">
@@ -438,7 +447,7 @@ Expect: bass house, tech house, club bangers, rave edits, festival weapons and b
           </a>
 
           <a class="tile" href="https://www.mixcloud.com/jb__72/dj-zr-bass-house-march-2026/" target="_blank" rel="noopener noreferrer">
-            <div class="tile-media">
+            <div class="tile-media" style="background-image: url('images/mixcloud-march-2026.jpg');">
               <span class="tile-tag">MIXCLOUD</span>
             </div>
             <div class="tile-content">
