@@ -311,6 +311,46 @@
       font-size: 0.9rem;
     }
 
+    .mixcloud-embeds {
+      padding: 0 0 48px;
+    }
+
+    .embed-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .embed-card {
+      background: linear-gradient(180deg, rgba(15, 21, 32, 0.92), rgba(8, 12, 18, 0.96));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .embed-card h3 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+      line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .embed-frame {
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.35);
+    }
+
+    .embed-frame iframe {
+      display: block;
+      width: 100%;
+      height: 120px;
+      border: 0;
+    }
+
     footer {
       padding: 0 0 34px;
     }
@@ -335,6 +375,10 @@
       .tiles-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+
+      .embed-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 720px) {
@@ -353,7 +397,8 @@
         gap: 20px;
       }
 
-      .tiles-grid {
+      .tiles-grid,
+      .embed-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -460,6 +505,61 @@ Expect: bass house, tech house, club bangers, rave edits, festival weapons and b
               <span class="tile-link">Open Link</span>
             </div>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="mixcloud-embeds" id="mixcloud-embeds">
+      <div class="page-shell">
+        <div class="tiles-header">
+          <h2>Embedded Mixes</h2>
+          <p>
+            Listen to more mixes right here.
+          </p>
+        </div>
+
+        <div class="embed-grid">
+          <div class="embed-card">
+            <h3>Retro Mix Part 1</h3>
+            <div class="embed-frame">
+             <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zr-retro-mix-part-1%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" ></iframe>
+            </div>
+          </div>
+
+          <div class="embed-card">
+            <h3>Retro Mix Part 2</h3>
+            <div class="embed-frame">
+              <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zr-retro-mix-part-2%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" ></iframe>
+            </div>
+          </div>
+
+          <div class="embed-card">
+            <h3>Mainstage March 2026</h3>
+            <div class="embed-frame">
+             <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zr-mainstage-march-2026%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" ></iframe>
+            </div>
+          </div>
+
+          <div class="embed-card">
+            <h3>Bass House Feb 2026</h3>
+            <div class="embed-frame">
+             <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zr-bass-house-feb-2026%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" ></iframe>
+            </div>
+          </div>
+
+          <div class="embed-card">
+            <h3>House with a 90s vibe</h3>
+            <div class="embed-frame">
+              <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zr-house-with-a-90s-vibe%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" ></iframe>
+            </div>
+          </div>
+
+          <div class="embed-card">
+            <h3>Henri PFR Megamix</h3>
+            <div class="embed-frame">
+             <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zj-henri-pfr-megamix-dec-2025%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" ></iframe>
+            </div>
+          </div>
         </div>
       </div>
     </section>
