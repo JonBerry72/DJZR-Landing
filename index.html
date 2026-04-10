@@ -3,22 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DJZR</title>
-  <link rel="icon" type="image/jpeg" href="images/ZR 2026.png">
-  <link rel="shortcut icon" href="images/ZR 2026.png">
-  <meta name="description" content="DJZR landing page" />
+  <title>DJZR | Mainstage Energy, Festival Atmosphere & High-Impact Mixes</title>
+  <link rel="icon" type="image/png" href="images/ZR%202026.png">
+  <link rel="shortcut icon" href="images/ZR%202026.png">
+  <link rel="apple-touch-icon" href="images/ZR%202026.png">
+  <meta name="description" content="DJZR landing page featuring mainstage energy, festival atmosphere and high-impact mixes across YouTube and Mixcloud." />
+  <meta name="theme-color" content="#05070b">
+
+  <meta property="og:title" content="DJZR">
+  <meta property="og:description" content="Mainstage energy, festival atmosphere and high-impact mixes in one place.">
+  <meta property="og:image" content="images/djzr_circuit_shimmer.gif">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://djzr.co.uk/">
+
   <style>
     :root {
+      --space-1: 8px;
+      --space-2: 16px;
+      --space-3: 24px;
+      --space-4: 32px;
+      --space-5: 48px;
+      --space-6: 64px;
+
       --bg: #05070b;
       --panel: rgba(10, 14, 22, 0.88);
       --panel-2: rgba(14, 19, 30, 0.92);
       --text: #f5f7fb;
-      --muted: #b8c1d1;
+      --muted: #c8d0dd;
       --border: rgba(255, 255, 255, 0.12);
       --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
       --radius-lg: 24px;
       --radius-md: 18px;
       --max-width: 1240px;
+      --focus-outline: 2px solid #ffffff;
+      --focus-offset: 3px;
     }
 
     * {
@@ -49,13 +67,38 @@
       text-decoration: none;
     }
 
+    .skip-link {
+      position: absolute;
+      top: -48px;
+      left: 12px;
+      z-index: 1000;
+      background: #ffffff;
+      color: #000000;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    .btn:focus-visible,
+    .tile:focus-visible {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-offset);
+    }
+
     .page-shell {
       width: min(calc(100% - 32px), var(--max-width));
       margin: 0 auto;
     }
 
     .hero {
-      padding: 22px 0 18px;
+      padding: var(--space-3) 0 var(--space-2);
     }
 
     .hero-banner {
@@ -100,12 +143,12 @@
     .hero-title p {
       margin: 12px 0 0;
       max-width: 520px;
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(255, 255, 255, 0.94);
       font-size: clamp(0.95rem, 1.8vw, 1.1rem);
     }
 
     .about {
-      padding: 24px 0 8px;
+      padding: var(--space-3) 0 var(--space-1);
     }
 
     .about-card {
@@ -182,26 +225,20 @@
       font-weight: 700;
       letter-spacing: 0.02em;
       border: 1px solid rgba(255,255,255,0.12);
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .btn-primary {
       background: rgba(255, 255, 255, 0.04);
       color: var(--text);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text);
-    }
-
-    .btn:hover,
-    .tile:hover {
+    .btn:hover {
       transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.26);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
     }
 
     .platforms {
-      padding: 34px 0 48px;
+      padding: var(--space-4) 0 var(--space-5);
     }
 
     .tiles-header {
@@ -233,6 +270,7 @@
     }
 
     .tile:hover {
+      transform: translateY(-3px);
       border-color: rgba(255, 255, 255, 0.22);
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
     }
@@ -312,7 +350,7 @@
     }
 
     .mixcloud-embeds {
-      padding: 0 0 48px;
+      padding: 0 0 var(--space-5);
     }
 
     .embed-grid {
@@ -358,7 +396,7 @@
     .footer-card {
       border-top: 1px solid rgba(255,255,255,0.1);
       padding-top: 18px;
-      color: rgba(255,255,255,0.62);
+      color: rgba(255,255,255,0.7);
       font-size: 0.92rem;
       text-align: center;
     }
@@ -402,45 +440,71 @@
         grid-template-columns: 1fr;
       }
     }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding-top: var(--space-2);
+      }
+
+      .hero-title h1 {
+        font-size: clamp(1.8rem, 8vw, 2.4rem);
+      }
+
+      .hero-title p {
+        font-size: 0.95rem;
+      }
+
+      .about-card,
+      .embed-card,
+      .tile-content {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <header class="hero">
     <div class="page-shell">
       <div class="hero-banner">
-        <img src="images/djzr_circuit_shimmer.gif" alt="DJZR banner" />
+        <img src="images/djzr_circuit_shimmer.gif" alt="DJZR banner with electronic circuit styling" />
         <div class="hero-overlay"></div>
         <div class="hero-title">
-          <h1>.</h1>
+          <h1>DJZR</h1>
           <p>Mainstage energy, festival atmosphere and high-impact mixes in one place.</p>
         </div>
       </div>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="about">
       <div class="page-shell">
         <div class="about-card">
           <div class="about-logo-wrap">
             <div class="about-logo">
-              <img src="images/ZR%202026.png" alt="DJZR logo" />
+              <img src="images/ZR%202026.png" alt="DJZR logo" loading="lazy" />
             </div>
           </div>
 
           <div class="about-copy">
             <h2>About</h2>
             <p>
-              DJing has been in my blood since the late 80s/early 90s, and even though I don’t play live anymore, the passion for dance music has never gone away. This channel is all about the mixes I create from the music I love most — fresh tracks, record pool discoveries, festival-inspired energy, and sets I’d want to play loud myself. 
+              DJing has been in my blood since the late 80s and early 90s, and even though I don’t play live anymore, the passion for dance music has never gone away. This channel is all about the mixes I create from the music I love most — fresh tracks, record pool discoveries, festival-inspired energy, and sets I’d want to play loud myself.
             </p>
             <p>
-              I upload mixes across bass house, tech house, nu-disco, mainstage and hard house, shaped by a lifelong love of club culture and the EDM festival scene. Inspired by the atmosphere of events I still attend like Tomorrowland, AMF and Don’t Let Daddy Know, these mixes are made for anyone who loves big energy, strong flow and great dance music without the filler.
-I make them for me first — and share them for anyone else who wants to come along for the ride.
+              I upload mixes across bass house, tech house, nu-disco, mainstage and hard house, shaped by a lifelong love of club culture and the EDM festival scene. Inspired by events I still attend like Tomorrowland, AMF and Don’t Let Daddy Know, these mixes are made for anyone who loves big energy, strong flow and great dance music without the filler. I make them for me first — and share them for anyone else who wants to come along for the ride.
             </p>
 
             <div class="about-actions">
-              <a class="btn btn-primary" href="https://www.youtube.com/@DJ-ZR" target="_blank" rel="noopener noreferrer">YouTube</a>
-              <a class="btn btn-secondary" href="https://www.mixcloud.com/jb__72/" target="_blank" rel="noopener noreferrer">Mixcloud</a>
+              <a class="btn" href="https://www.youtube.com/@DJ-ZR" target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a class="btn" href="https://www.mixcloud.com/jb__72/" target="_blank" rel="noopener noreferrer">Mixcloud</a>
             </div>
           </div>
         </div>
@@ -452,29 +516,24 @@ I make them for me first — and share them for anyone else who wants to come al
         <div class="tiles-header">
           <h2>Latest Content</h2>
           <p>
-            Mixcloud, YouTube, socials, featured sets or future releases.            
+            Mixcloud, YouTube, socials, featured sets and the latest DJZR releases.
           </p>
         </div>
 
         <div class="tiles-grid">
-                    <a class="tile" href="https://www.youtube.com/watch?v=sFqHmrT8QoA&t=3230s" target="_blank" rel="noopener noreferrer">
+          <a class="tile" href="https://www.youtube.com/watch?v=sFqHmrT8QoA&t=3230s" target="_blank" rel="noopener noreferrer">
             <div class="tile-media" style="background-image: url('images/Nu-Disco vibes in the spotlight.png');">
               <span class="tile-tag">YouTube</span>
             </div>
             <div class="tile-content">
               <h3>Nu-Disco House Party Mix 2026 ✨ Block & Crown, Sabrina Carpenter, Purple Disco Machine</h3>
               <p>
-                This is a feel-good disco house mix packed with funky edits, vocal house energy and uplifting party vibes all the way through.
-
-Featuring a heavy Block & Crown presence alongside Sabrina Carpenter, Purple Disco Machine, Kool & The Gang, BLUE PEARL and more, this mix blends disco house, funky house and club-ready remixes into one smooth session.
-
-Expect singalong hooks, classic reworks, catchy vocals and upbeat grooves designed for parties, workouts, driving, background listening or just getting your weekend started right.
-
-If you’re into disco house, funky house, vocal house, nu disco and feel-good club music, this one is for you.
+                A feel-good disco house mix packed with funky edits, vocal hooks and uplifting party energy. Expect catchy reworks, singalong moments and upbeat grooves built for weekends, workouts and full-volume listening.
               </p>
               <span class="tile-link">Open Link</span>
             </div>
           </a>
+
           <a class="tile" href="https://www.mixcloud.com/jb__72/pre-release-big-room-arpil-2026/" target="_blank" rel="noopener noreferrer">
             <div class="tile-media" style="background-image: url('images/BigRoomEnergy.png');">
               <span class="tile-tag">Mixcloud</span>
@@ -482,13 +541,7 @@ If you’re into disco house, funky house, vocal house, nu disco and feel-good c
             <div class="tile-content">
               <h3>Big Room, Main Stage Energy - April 2026</h3>
               <p>
-                If you love massive builds, euphoric melodies and a closing stretch that goes absolutely off, this one is made to hit loud. Festival-house at the front, rave-fuelled chaos at the back—exactly how a big room set should move.
-
-From the first vocal lift to the final all-out rave rush, this mix is built for giant stages, fireworks, hands-in-the-air moments and that pure festival euphoria.
-
-It opens with sleek, melodic mainstage energy from Sam Feldt, AFROJACK, David Guetta, Zedd and the huge John Newman rework from DubVision & Third Party, then keeps climbing with Matisse & Sadko’s progressive emotion, Mathame’s cinematic tension and the darker punch of Eli Brown.
-
-By the time Hardwell, Ryos, Bassjackers and Maddix take over, the set flips into full end-of-night mode—faster, harder and impossible to stand still to. The closing run, finishing on Makina Time, feels like a Tomorrowland mainstage afterburner: peak-time drops, rave pressure, singalong hooks and zero let-up.
+                Massive builds, euphoric melodies and a full-throttle closing stretch. This mix moves from sleek mainstage emotion into rave-fuelled chaos, built for giant stages, fireworks and hands-in-the-air moments.
               </p>
               <span class="tile-link">Open Link</span>
             </div>
@@ -501,11 +554,7 @@ By the time Hardwell, Ryos, Bassjackers and Maddix take over, the set flips into
             <div class="tile-content">
               <h3>Mainstage Club Energy 2026 🚨 DJ ZR Bass House | Tech House | House & Festival Weapons</h3>
               <p>
-                High-energy club weapons only. This DJ ZR mix blends bass house, tech house, mainstage pressure and party edits from Sean Paul, Tiësto, Don Diablo, Miss Monique, Chris Lorenzo and more.
-
-From Pump Up The Jam flips to Sean Paul club edits, Miss Monique grooves and peak-time festival energy, this mix is built for workouts, parties, late-night drives and full-volume speaker sessions.
-
-Expect: bass house, tech house, club bangers, rave edits, festival weapons and big crossover records.
+                High-energy club weapons only. Bass house, tech house, mainstage pressure and big crossover records blended into one set for parties, workouts, late-night drives and peak-time speaker sessions.
               </p>
               <span class="tile-link">Open Link</span>
             </div>
@@ -513,12 +562,12 @@ Expect: bass house, tech house, club bangers, rave edits, festival weapons and b
 
           <a class="tile" href="https://www.mixcloud.com/jb__72/high-bpm-energy-april-2026/" target="_blank" rel="noopener noreferrer">
             <div class="tile-media" style="background-image: url('images/HighEnergyBPM.png');">
-              <span class="tile-tag">MIXCLOUD</span>
+              <span class="tile-tag">Mixcloud</span>
             </div>
             <div class="tile-content">
               <h3>High BPM Energy</h3>
               <p>
-                This mix is pure rave acceleration from the first second. It launches with David Guetta’s remix of Empire Of The Sun – “Alive”, then charges straight into the euphoric mainstage lift of Ryos & Jarred’s “Fourth Dimension” and the 142 BPM trance drive of Indecent Noise & Artento Divini – “Right Here.” From there, it gets tougher and faster: Darude & Skytech’s hypertrance take on “Sandstorm,” Maddix’s high-voltage “The Ultimate Seduction,” Mha Iri & T78’s acid-heavy “The Ultimate Acid Track,” and Coone, TNT and Technotronic’s hard dance reboot of “Pump Up The Jam” all push the mix deeper into peak-time territory. The second half keeps climbing with Bassjackers, WUKONG & Evil Twiin – “Rave Baby,” Bassjackers’ “KIDS,” and Odymel’s “My Favourite Game,” giving the set a sharp blend of festival energy, donk, hard dance nostalgia and modern trance power. This is a full-throttle, hands-in-the-air mix built for big drops, bigger reactions and zero let-up.
+                Pure rave acceleration from the first second. Fast, euphoric and full of hard dance pressure, trance drive and festival energy with zero let-up from start to finish.
               </p>
               <span class="tile-link">Open Link</span>
             </div>
@@ -540,42 +589,42 @@ Expect: bass house, tech house, club bangers, rave edits, festival weapons and b
           <div class="embed-card">
             <h3>Retro Mix Part 1</h3>
             <div class="embed-frame">
-             <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zr-retro-mix-part-1%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" ></iframe>
+              <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zr-retro-mix-part-1%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;"></iframe>
             </div>
           </div>
 
           <div class="embed-card">
             <h3>Retro Mix Part 2</h3>
             <div class="embed-frame">
-              <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zr-retro-mix-part-2%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" ></iframe>
+              <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zr-retro-mix-part-2%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;"></iframe>
             </div>
           </div>
 
           <div class="embed-card">
             <h3>Mainstage March 2026</h3>
             <div class="embed-frame">
-             <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zr-mainstage-march-2026%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" ></iframe>
+              <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zr-mainstage-march-2026%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;"></iframe>
             </div>
           </div>
 
           <div class="embed-card">
             <h3>Bass House Feb 2026</h3>
             <div class="embed-frame">
-             <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zr-bass-house-feb-2026%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" ></iframe>
+              <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zr-bass-house-feb-2026%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;"></iframe>
             </div>
           </div>
 
           <div class="embed-card">
             <h3>House with a 90s vibe</h3>
             <div class="embed-frame">
-              <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zr-house-with-a-90s-vibe%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" ></iframe>
+              <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zr-house-with-a-90s-vibe%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;"></iframe>
             </div>
           </div>
 
           <div class="embed-card">
             <h3>Henri PFR Megamix</h3>
             <div class="embed-frame">
-             <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zj-henri-pfr-megamix-dec-2025%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" ></iframe>
+              <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zj-henri-pfr-megamix-dec-2025%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;"></iframe>
             </div>
           </div>
         </div>
