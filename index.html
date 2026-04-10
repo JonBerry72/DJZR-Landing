@@ -3,18 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DJZR | Mainstage Energy, Festival Atmosphere & High-Impact Mixes</title>
-  <link rel="icon" type="image/png" href="images/ZR%202026.png">
-  <link rel="shortcut icon" href="images/ZR%202026.png">
-  <link rel="apple-touch-icon" href="images/ZR%202026.png">
-  <meta name="description" content="DJZR landing page featuring mainstage energy, festival atmosphere and high-impact mixes across YouTube and Mixcloud." />
-  <meta name="theme-color" content="#05070b">
 
-  <meta property="og:title" content="DJZR">
-  <meta property="og:description" content="Mainstage energy, festival atmosphere and high-impact mixes in one place.">
-  <meta property="og:image" content="images/djzr_circuit_shimmer.gif">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://djzr.co.uk/">
+  <title>DJZR | DJ Mixes, Mainstage Energy, Bass House, Tech House & Nu-Disco</title>
+  <meta name="description" content="Listen to DJZR mixes featuring mainstage energy, bass house, tech house, nu-disco and festival-inspired EDM sets on YouTube and Mixcloud." />
+  <meta name="theme-color" content="#05070b" />
+  <link rel="canonical" href="https://djzr.co.uk/" />
+
+  <link rel="icon" type="image/png" href="images/ZR%202026.png" />
+  <link rel="shortcut icon" href="images/ZR%202026.png" />
+  <link rel="apple-touch-icon" href="images/ZR%202026.png" />
+
+  <meta property="og:title" content="DJZR | DJ Mixes, Mainstage Energy, Bass House, Tech House & Nu-Disco" />
+  <meta property="og:description" content="Listen to DJZR mixes featuring mainstage energy, bass house, tech house, nu-disco and festival-inspired EDM sets on YouTube and Mixcloud." />
+  <meta property="og:image" content="https://djzr.co.uk/images/djzr_circuit_shimmer.gif" />
+  <meta property="og:url" content="https://djzr.co.uk/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DJZR" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DJZR | DJ Mixes, Mainstage Energy, Bass House, Tech House & Nu-Disco" />
+  <meta name="twitter:description" content="Listen to DJZR mixes featuring mainstage energy, bass house, tech house, nu-disco and festival-inspired EDM sets on YouTube and Mixcloud." />
+  <meta name="twitter:image" content="https://djzr.co.uk/images/djzr_circuit_shimmer.gif" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "DJZR",
+    "url": "https://djzr.co.uk/",
+    "logo": "https://djzr.co.uk/images/ZR%202026.png",
+    "image": "https://djzr.co.uk/images/djzr_circuit_shimmer.gif",
+    "description": "DJZR creates high-energy mixes across mainstage, bass house, tech house, nu-disco and hard house.",
+    "sameAs": [
+      "https://www.youtube.com/@DJ-ZR",
+      "https://www.mixcloud.com/jb__72/"
+    ]
+  }
+  </script>
 
   <style>
     :root {
@@ -28,6 +53,7 @@
       --bg: #05070b;
       --panel: rgba(10, 14, 22, 0.88);
       --panel-2: rgba(14, 19, 30, 0.92);
+      --panel-3: rgba(12, 17, 26, 0.95);
       --text: #f5f7fb;
       --muted: #c8d0dd;
       --border: rgba(255, 255, 255, 0.12);
@@ -87,7 +113,8 @@
     a:focus-visible,
     button:focus-visible,
     .btn:focus-visible,
-    .tile:focus-visible {
+    .tile:focus-visible,
+    .faq-item summary:focus-visible {
       outline: var(--focus-outline);
       outline-offset: var(--focus-offset);
     }
@@ -128,7 +155,7 @@
       left: 36px;
       bottom: 28px;
       z-index: 2;
-      max-width: 640px;
+      max-width: 720px;
     }
 
     .hero-title h1 {
@@ -142,13 +169,32 @@
 
     .hero-title p {
       margin: 12px 0 0;
-      max-width: 520px;
+      max-width: 560px;
       color: rgba(255, 255, 255, 0.94);
       font-size: clamp(0.95rem, 1.8vw, 1.1rem);
     }
 
+    .about,
+    .seo-copy,
+    .platforms,
+    .mixcloud-embeds,
+    .faq {
+      padding: var(--space-4) 0;
+    }
+
     .about {
-      padding: var(--space-3) 0 var(--space-1);
+      padding-top: var(--space-3);
+      padding-bottom: var(--space-2);
+    }
+
+    .about-card,
+    .seo-card,
+    .faq-card {
+      background: linear-gradient(180deg, var(--panel), var(--panel-2));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
     .about-card {
@@ -156,12 +202,7 @@
       grid-template-columns: 320px 1fr;
       gap: 28px;
       align-items: center;
-      background: linear-gradient(180deg, var(--panel), var(--panel-2));
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
       padding: 28px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
     }
 
     .about-logo-wrap {
@@ -194,7 +235,9 @@
     }
 
     .about-copy h2,
-    .tiles-header h2 {
+    .tiles-header h2,
+    .seo-card h2,
+    .faq-card h2 {
       margin: 0 0 12px;
       font-size: clamp(1.6rem, 2.6vw, 2.3rem);
       line-height: 1.05;
@@ -202,7 +245,8 @@
       letter-spacing: 0.04em;
     }
 
-    .about-copy p {
+    .about-copy p,
+    .seo-card p {
       margin: 0 0 16px;
       color: var(--muted);
       font-size: 1rem;
@@ -237,8 +281,19 @@
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
     }
 
-    .platforms {
-      padding: var(--space-4) 0 var(--space-5);
+    .seo-card,
+    .faq-card {
+      padding: 28px;
+    }
+
+    .seo-card ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .seo-card li {
+      margin-bottom: 10px;
     }
 
     .tiles-header {
@@ -349,10 +404,6 @@
       font-size: 0.9rem;
     }
 
-    .mixcloud-embeds {
-      padding: 0 0 var(--space-5);
-    }
-
     .embed-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -387,6 +438,36 @@
       width: 100%;
       height: 120px;
       border: 0;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .faq-item {
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 16px 18px;
+      font-weight: 700;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item p {
+      margin: 0;
+      padding: 0 18px 18px;
+      color: var(--muted);
     }
 
     footer {
@@ -430,7 +511,9 @@
         bottom: 18px;
       }
 
-      .about-card {
+      .about-card,
+      .seo-card,
+      .faq-card {
         padding: 20px;
         gap: 20px;
       }
@@ -456,7 +539,9 @@
 
       .about-card,
       .embed-card,
-      .tile-content {
+      .tile-content,
+      .seo-card,
+      .faq-card {
         padding-left: 16px;
         padding-right: 16px;
       }
@@ -473,11 +558,11 @@
   <header class="hero">
     <div class="page-shell">
       <div class="hero-banner">
-        <img src="images/djzr_circuit_shimmer.gif" alt="DJZR banner with electronic circuit styling" />
+        <img src="images/djzr_circuit_shimmer.gif" alt="DJZR electronic music banner with circuit design" />
         <div class="hero-overlay"></div>
         <div class="hero-title">
           <h1>DJZR</h1>
-          <p>Mainstage energy, festival atmosphere and high-impact mixes in one place.</p>
+          <p>Mainstage energy, festival atmosphere and high-impact DJ mixes in one place.</p>
         </div>
       </div>
     </div>
@@ -494,7 +579,7 @@
           </div>
 
           <div class="about-copy">
-            <h2>About</h2>
+            <h2>About DJZR</h2>
             <p>
               DJing has been in my blood since the late 80s and early 90s, and even though I don’t play live anymore, the passion for dance music has never gone away. This channel is all about the mixes I create from the music I love most — fresh tracks, record pool discoveries, festival-inspired energy, and sets I’d want to play loud myself.
             </p>
@@ -511,12 +596,33 @@
       </div>
     </section>
 
+    <section class="seo-copy">
+      <div class="page-shell">
+        <div class="seo-card">
+          <h2>DJ Mixes, Festival Energy and EDM Sets</h2>
+          <p>
+            DJZR is a home for high-energy DJ mixes covering bass house, tech house, nu-disco, big room, mainstage and hard house. The site brings together featured YouTube uploads, Mixcloud streams and handpicked sets built for workouts, parties, driving, background listening and full-volume festival-style sessions.
+          </p>
+          <p>
+            Whether you are looking for a nu-disco house mix, a mainstage EDM set, a bass house session or a high BPM rave-influenced mix, DJZR focuses on strong flow, big moments and music selected for impact. New mixes and featured content are added regularly across YouTube and Mixcloud.
+          </p>
+          <ul>
+            <li>Mainstage and festival-inspired DJ mixes</li>
+            <li>Bass house, tech house and nu-disco sets</li>
+            <li>Mixcloud embeds for instant listening</li>
+            <li>YouTube uploads featuring curated EDM sessions</li>
+            <li>Fresh content for dance music fans and club music listeners</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section class="platforms" id="platforms">
       <div class="page-shell">
         <div class="tiles-header">
-          <h2>Latest Content</h2>
+          <h2>Latest DJ Mixes and Festival-Inspired Sets</h2>
           <p>
-            Mixcloud, YouTube, socials, featured sets and the latest DJZR releases.
+            Explore the latest DJZR uploads across YouTube and Mixcloud, featuring mainstage energy, nu-disco grooves, club weapons and high-BPM festival pressure.
           </p>
         </div>
 
@@ -579,9 +685,9 @@
     <section class="mixcloud-embeds" id="mixcloud-embeds">
       <div class="page-shell">
         <div class="tiles-header">
-          <h2>Mixcloud Content</h2>
+          <h2>Listen to DJZR Mixcloud Mixes</h2>
           <p>
-            Listen to more mixes right here.
+            Stream more DJZR content directly from Mixcloud, including retro mixes, mainstage sessions, bass house sets and club-focused dance music blends.
           </p>
         </div>
 
@@ -626,6 +732,36 @@
             <div class="embed-frame">
               <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fjb__72%2Fdj-zj-henri-pfr-megamix-dec-2025%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;"></iframe>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="page-shell">
+        <div class="faq-card">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>What kind of music does DJZR play?</summary>
+              <p>DJZR focuses on bass house, tech house, nu-disco, mainstage, big room and hard house, with a strong emphasis on energy, flow and festival-inspired dance music.</p>
+            </details>
+
+            <details class="faq-item">
+              <summary>Where can I listen to DJZR mixes?</summary>
+              <p>You can listen to DJZR mixes on both YouTube and Mixcloud. This page features direct links to both platforms, along with embedded Mixcloud players for instant streaming.</p>
+            </details>
+
+            <details class="faq-item">
+              <summary>Are new DJZR mixes added regularly?</summary>
+              <p>Yes. The site is designed to highlight the latest featured sets, recent uploads and selected Mixcloud content, with fresh mixes added over time.</p>
+            </details>
+
+            <details class="faq-item">
+              <summary>What makes DJZR mixes different?</summary>
+              <p>DJZR mixes are built around strong track flow, big moments, club energy and music chosen for impact rather than filler, drawing inspiration from festivals, club culture and modern dance music.</p>
+            </details>
           </div>
         </div>
       </div>
