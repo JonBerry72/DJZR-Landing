@@ -803,5 +803,99 @@
       </div>
     </div>
   </footer>
+<style>
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #111;
+  color: #fff;
+  padding: 15px;
+  font-family: Arial, sans-serif;
+  display: none;
+  z-index: 9999;
+}
+#cookie-banner p {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+#cookie-banner button {
+  margin-right: 10px;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+}
+.accept-btn { background: #4CAF50; color: #fff; }
+.reject-btn { background: #f44336; color: #fff; }
+</style>
+
+<div id="cookie-banner">
+  <p>
+    We use cookies to improve your experience and analyse traffic.
+    You can accept or reject analytics tracking.
+  </p>
+  <button class="accept-btn" onclick="acceptCookies()">Accept</button>
+  <button class="reject-btn" onclick="rejectCookies()">Reject</button>
+</div>
+
+<script>
+function setCookie(name, value, days) {
+  let expires = "";
+  if (days) {
+    let date = new Date();
+    date.setTime(date.getTime() + (days*24*60*60*1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + value + "; path=/" + expires;
+}
+
+function getCookie(name) {
+  let nameEQ = name + "=";
+  let ca = document.cookie.split(';');
+  for(let i=0;i < ca.length;i++) {
+    let c = ca[i].trim();
+    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length);
+  }
+  return null;
+}
+
+function acceptCookies() {
+  setCookie("cookie_consent", "accepted", 365);
+  document.getElementById("cookie-banner").style.display = "none";
+  loadAnalytics();
+}
+
+function rejectCookies() {
+  setCookie("cookie_consent", "rejected", 365);
+  document.getElementById("cookie-banner").style.display = "none";
+}
+
+function loadAnalytics() {
+  // Google Analytics script injected ONLY after consent
+  let script = document.createElement("script");
+  script.src = "https://www.googletagmanager.com/gtag/js?id=G-2B4QLVZ9SZ";
+  script.async = true;
+  document.head.appendChild(script);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+
+  gtag('js', new Date());
+  gtag('config', 'G-2B4QLVZ9SZ');
+}
+
+window.onload = function() {
+  let consent = getCookie("cookie_consent");
+
+  if (!consent) {
+    document.getElementById("cookie-banner").style.display = "block";
+  } else if (consent === "accepted") {
+    loadAnalytics();
+  }
+}
+</script>
+  
 </body>
 </html>
